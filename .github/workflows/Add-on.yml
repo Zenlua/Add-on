@@ -1,6 +1,5 @@
 name: Auto Add-On
 on:
-  workflow_dispatch:
   push:
     paths:
       - '.github/add-on/*'
