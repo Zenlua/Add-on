@@ -24,9 +24,9 @@ jobs:
           if [ "$(grep -cm1 "$id|" "$vv")" == 1 ];then
           sed -i "/${id}|/d" up.log
           fi
-          cat "$vv" >> up.log
+          cat "$vv" | tee -a up.log
           done
-          cat up.log | sort -n -u > new.log
+          cat up.log | sort -n -u | tee new.log
           mv new.log up.log
           else
           gh run cancel $GITHUB_RUN_ID
