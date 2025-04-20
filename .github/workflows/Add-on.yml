@@ -1,5 +1,6 @@
 name: CI Auto Add-on
 on:
+  workflow_dispatch:
   push:
     paths:
       - '.github/add-on/*'
