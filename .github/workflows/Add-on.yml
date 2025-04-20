@@ -1,4 +1,4 @@
-name: CI Auto run Add-on
+name: Auto Add-on
 on:
   workflow_dispatch:
   push:
@@ -19,13 +19,15 @@ jobs:
       - name: Editor File
         run: |
           env
-          if [ "$(ls .github/add-on/*.txt)" ];then
+          if [ "$(ls .github/add-on/*.txt 2>/dev/null)" ];then
           for vv in .github/add-on/*.txt; do
           cat "$vv" >> up.log
           done
           cat up.log | sort -n -u > new.log
           mv new.log up.log
           else
+          gh run cancel $GITHUB_RUN_ID
+          sleep 5
           exit 1
           fi
       - name: Upload File
