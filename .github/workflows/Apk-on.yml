@@ -1,0 +1,50 @@
+name: Auto Apk-On
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/apk-on/*'
+permissions: write-all
+env:
+    GH_TOKEN: ${{ github.token }}
+jobs:
+  build:
+    name: 'Update file'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download asset from release
+        run: |
+          gh release download Apk-on --repo Zenlua/Add-on --pattern "up.log"
+      - name: Editor File
+        run: |
+          # Kakathic
+          if [ "$(ls .github/apk-on/*.txt 2>/dev/null)" ];then
+          for vv in .github/apk-on/*.txt; do
+          cat "$vv" >> up.log
+          done
+          cat up.log | sort -n -u > new.log
+          mv new.log up.log
+          else
+          gh run cancel $GITHUB_RUN_ID
+          sleep 5
+          exit 1
+          fi
+      - name: Upload File
+        uses: softprops/action-gh-release@v1
+        with:
+          name: Apk-on
+          tag_name: Apk-on
+          files: up.log
+      - name: Delete file
+        run: |
+          rm -f .github/apk-on/*.* up.log  
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -u
+          git commit -m "Auto delete file" || echo "Nothing to commit"
+          git push
+
+          
