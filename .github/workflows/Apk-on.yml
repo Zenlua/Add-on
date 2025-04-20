@@ -26,7 +26,9 @@ jobs:
           fi
           cat "$vv" >> up.log
           done
-          cat up.log | sort -n -u > new.log
+          cat up.log | grep '|' | sort -n > new.log
+          echo "Đọc new.log"
+          cat new.log
           mv new.log up.log
           else
           gh run cancel $GITHUB_RUN_ID
