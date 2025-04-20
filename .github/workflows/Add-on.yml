@@ -14,35 +14,30 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Download asset from release
-        run: |
-          gh release download Add-on --repo Zenlua/Add-on --pattern "up.log"
       - name: Editor File
         run: |
           # Kakathic
           if [ "$(ls .github/add-on/*.txt 2>/dev/null)" ];then
+          ptat=".github/add-on/Hello"
           for vv in .github/add-on/*.txt; do
           id="$(cat "$vv" | cut -d '|' -f1)"
           if [ "$(grep -cm1 "$id|" "$vv")" == 1 ];then
-          sed -i "/${id}|/d" up.log
+          sed -i "/${id}|/d" $ptat
           fi
-          cat "$vv" >> up.log
+          cat "$vv" >> $ptat
           done
-          cat up.log | grep '|' | sort -n > new.log
+          cat $ptat | grep '|' | sort -n > new.log
           echo -e "Đọc nội dung new.log\n"
           cat new.log
-          mv new.log up.log
+          mv new.log $ptat
           else
           gh run cancel $GITHUB_RUN_ID
           sleep 5
           exit 1
           fi
-      - name: Upload File
-        run: |
-          gh release upload Add-on up.log --clobber --repo Zenlua/Add-on
       - name: Delete file
         run: |
-          rm -f .github/add-on/*.* up.log  
+          rm -f .github/add-on/*.*  
       - name: Commit and push changes
         run: |
           git config user.name "github-actions[bot]"
