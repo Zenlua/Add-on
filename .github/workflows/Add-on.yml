@@ -27,7 +27,7 @@ jobs:
           cat "$vv" >> up.log
           done
           cat up.log | grep '|' | sort -n > new.log
-          echo "Đọc new.log"
+          echo -e "Đọc nội dung new.log\n"
           cat new.log
           mv new.log up.log
           else
