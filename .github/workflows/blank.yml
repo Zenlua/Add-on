@@ -4,6 +4,8 @@ on:
     paths:
       - '.github/add-on/*'
 permissions: write-all
+env:
+    GH_TOKEN: ${{ github.token }}
 jobs:
   build:
     name: 'Update file'
