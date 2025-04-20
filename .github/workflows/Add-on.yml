@@ -1,4 +1,4 @@
-name: Auto Add-on
+name: Auto Add-On
 on:
   workflow_dispatch:
   push:
@@ -18,7 +18,7 @@ jobs:
           gh release download Add-on --repo Zenlua/Add-on --pattern "up.log"
       - name: Editor File
         run: |
-          env
+          # Kakathic
           if [ "$(ls .github/add-on/*.txt 2>/dev/null)" ];then
           for vv in .github/add-on/*.txt; do
           cat "$vv" >> up.log
@@ -36,7 +36,6 @@ jobs:
           name: Add-on
           tag_name: Add-on
           files: up.log
-          body_path: up.log
       - name: Delete file
         run: |
           rm -f .github/add-on/*.* up.log  
