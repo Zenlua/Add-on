@@ -3,6 +3,8 @@ on:
   push:
     paths:
       - '.github/apk-on/*'
+concurrency:
+  group: repo-only
 permissions: write-all
 env:
     GH_TOKEN: ${{ github.token }}
