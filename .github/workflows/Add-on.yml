@@ -17,8 +17,15 @@ jobs:
           gh release download Add-on --repo Zenlua/Add-on --pattern "up.log"
       - name: Editor File
         run: |
-          echo 1
-          cat up.log    
+          if [ "$(ls .github/add-on/*.txt)" ];then
+          for vv in .github/add-on/*.txt; do
+          cat "$vv" >> up.log
+          done
+          cat up.log | sort -n -u > new.log
+          mv new.log up.log
+          else
+          exit 1
+          fi
       - name: Upload File
         uses: softprops/action-gh-release@v1
         with:
