@@ -8,7 +8,7 @@ env:
     GH_TOKEN: ${{ github.token }}
 jobs:
   build:
-    name: 'Update file'
+    name: 'Update File'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,10 +20,9 @@ jobs:
           # Kakathic
           if [ "$(ls .github/apk-on/*.txt 2>/dev/null)" ];then
           for vv in .github/apk-on/*.txt; do
-          id="$(cat "$vv" | cut -d 'π' -f1)"
-          author="$(cat "$vv" | cut -d 'π' -f2)"
-          if [ "$(grep -cm1 $id "$vv")" == 1 ];then
-          sed -i "/${id}π/d" up.log
+          id="$(cat "$vv" | cut -d '|' -f1)"
+          if [ "$(grep -cm1 "$id|" "$vv")" == 1 ];then
+          sed -i "/${id}|/d" up.log
           fi
           cat "$vv" >> up.log
           done
