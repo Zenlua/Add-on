@@ -8,7 +8,7 @@ env:
     GH_TOKEN: ${{ github.token }}
 jobs:
   build:
-    name: 'Update file'
+    name: 'Update File'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,7 +21,7 @@ jobs:
           if [ "$(ls .github/add-on/*.txt 2>/dev/null)" ];then
           for vv in .github/add-on/*.txt; do
           id="$(cat "$vv" | cut -d '|' -f1)"
-          if [ "$(grep -cm1 $id "$vv")" == 1 ];then
+          if [ "$(grep -cm1 "$id|" "$vv")" == 1 ];then
           sed -i "/${id}|/d" up.log
           fi
           cat "$vv" >> up.log
