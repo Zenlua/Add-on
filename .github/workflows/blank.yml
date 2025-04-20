@@ -2,7 +2,7 @@ name: CI Auto
 on:
   push:
     tags:
-      - 'v*'
+      - 'v2/*'
     paths:
       - '.github/add-on/*'
 permissions: write-all
