@@ -15,7 +15,7 @@ jobs:
           echo 1234
           echo 1111 > up.log
       - name: Upload File
-        uses: softprops/action-gh-release@v3
+        uses: softprops/action-gh-release@v1
         with:
           name: Add-on
           tag_name: Add-on
