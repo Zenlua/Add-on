@@ -12,7 +12,7 @@ env:
     VB: ${{ inputs.VB }}
 jobs:
   build:
-    name: 'Editor File'
+    name: 'Del Line'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
