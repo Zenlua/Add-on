@@ -27,7 +27,7 @@ jobs:
           cat "$vv" >> $ptat
           done
           cat $ptat | grep '|' | sort -n > new.log
-          echo -e "Đọc nội dung new.log\n"
+          echo -e "\nĐọc nội dung new.log\n"
           cat new.log
           mv new.log $ptat
           else
