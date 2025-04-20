@@ -10,10 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Add File
+      - name: Download asset from release
         run: |
-          echo 1234
-          echo 1111 > up.log
+          gh release download Add-on --repo Zenlua/Add-on --pattern "up.log"
+      - name: Editor File
+        run: |
+          echo 1
+          cat up.log    
       - name: Upload File
         uses: softprops/action-gh-release@v1
         with:
@@ -23,7 +26,7 @@ jobs:
           body_path: up.log
       - name: Delete file
         run: |
-          rm -f .github/add-on/*.*       
+          rm -f .github/add-on/*.* up.log  
       - name: Commit and push changes
         run: |
           git config user.name "github-actions[bot]"
