@@ -24,9 +24,9 @@ jobs:
           if [ "$(grep -cm1 "$id|" "$vv")" == 1 ];then
           sed -i "/${id}|/d" up.log
           fi
-          cat "$vv" | tee -a up.log
+          cat "$vv" >> up.log
           done
-          cat up.log | grep '|' | sort -n | tee new.log
+          cat up.log | grep '|' | sort -n > new.log
           echo "Đọc new.log"
           cat new.log
           mv new.log up.log
