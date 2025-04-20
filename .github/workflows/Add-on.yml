@@ -17,6 +17,7 @@ jobs:
           gh release download Add-on --repo Zenlua/Add-on --pattern "up.log"
       - name: Editor File
         run: |
+          env
           if [ "$(ls .github/add-on/*.txt)" ];then
           for vv in .github/add-on/*.txt; do
           cat "$vv" >> up.log
