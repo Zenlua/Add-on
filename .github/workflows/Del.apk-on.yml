@@ -1,0 +1,40 @@
+name: Xoá Apk-On
+on:
+  workflow_dispatch:
+    inputs:
+      VB:
+        description: 'Nhập văn bản'
+        required: false
+        default: ''
+permissions: write-all
+env:
+    GH_TOKEN: ${{ github.token }}
+    VB: ${{ inputs.VB }}
+jobs:
+  build:
+    name: 'Del Line'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download asset from release
+        run: |
+          gh release download Apk-on --repo Zenlua/Add-on --pattern "up.log"
+      - name: Editor File
+        run: |
+          # Kakathic
+          if [ "$VB" ];then
+          sed -i "/${VB}/d" up.log
+          cat up.log | sort -n -u > new.log
+          mv new.log up.log
+          else
+          gh run cancel $GITHUB_RUN_ID
+          sleep 5
+          exit 1
+          fi
+      - name: Upload File
+        uses: softprops/action-gh-release@v1
+        with:
+          name: Apk-on
+          tag_name: Apk-on
+          files: up.log
+          
