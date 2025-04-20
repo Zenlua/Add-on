@@ -1,6 +1,5 @@
 name: Auto Apk-On
 on:
-  workflow_dispatch:
   push:
     paths:
       - '.github/apk-on/*'
