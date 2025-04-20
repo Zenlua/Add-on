@@ -1,8 +1,6 @@
-name: CI Auto
+name: CI Auto Add-on
 on:
   push:
-    tags:
-      - 'v2/*'
     paths:
       - '.github/add-on/*'
 permissions: write-all
