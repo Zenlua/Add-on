@@ -24,7 +24,7 @@ jobs:
           # Kakathic
           if [ "$VB" ];then
           sed -i "/${VB}/d" up.log
-          cat up.log | sort -n -u > new.log
+          cat up.log | sort -n | tee new.log
           mv new.log up.log
           else
           gh run cancel $GITHUB_RUN_ID
