@@ -32,8 +32,5 @@ jobs:
           exit 1
           fi
       - name: Upload File
-        uses: softprops/action-gh-release@v1
-        with:
-          name: Add-on
-          tag_name: Add-on
-          files: up.log
+        run: |
+          gh release upload Add-on up.log --clobber --repo Zenlua/Add-on
