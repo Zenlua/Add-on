@@ -32,9 +32,7 @@ jobs:
           exit 1
           fi
       - name: Upload File
-        uses: softprops/action-gh-release@v1
-        with:
-          name: Apk-on
-          tag_name: Apk-on
-          files: up.log
+        run: |
+          gh release upload Apk-on up.log --clobber --repo Zenlua/Add-on
+
           
