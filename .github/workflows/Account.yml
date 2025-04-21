@@ -39,6 +39,8 @@ jobs:
       - name: Upload File
         run: |
           gh release upload tmp .github/user/TK --clobber --repo Zenlua/Add-on
+          sleep 5
+          gh release upload tmp .github/user/TK --clobber --repo Zenlua/Add-on
       - name: Delete file
         run: |
           rm -f .github/user/*.*  
