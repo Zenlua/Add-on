@@ -5,14 +5,13 @@ on:
       - '.github/user/*'
 concurrency:
   group: repo-only
-  cancel-in-progress: true
+  cancel-in-progress: false
 permissions: write-all
 env:
     GH_TOKEN: ${{ github.token }}
 jobs:
   build:
     name: 'Update File'
-    environment: delay1m
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
