@@ -36,11 +36,6 @@ jobs:
           sleep 5
           exit 1
           fi
-      - name: Upload File
-        run: |
-          gh release upload tmp .github/user/TK --clobber --repo Zenlua/Add-on
-          sleep 5
-          gh release upload tmp .github/user/TK --clobber --repo Zenlua/Add-on
       - name: Delete file
         run: |
           rm -f .github/user/*.*  
