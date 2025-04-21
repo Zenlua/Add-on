@@ -27,7 +27,7 @@ jobs:
           [ "$(grep -cm1 "$anid|" "$vv")" == 1 ] && sed -i "/${anid}|/d" $ptat
           cat "$vv" >> $ptat
           done
-          cat $ptat | grep '|' | sort -n > new.log
+          cat $ptat | grep '|' 2>/dev/null | sort -n > new.log
           echo -e "\nĐọc nội dung new.log\n"
           cat new.log
           mv new.log $ptat
