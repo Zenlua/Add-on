@@ -23,11 +23,8 @@ jobs:
           for vv in .github/user/*.txt; do
           id="$(cat "$vv" | cut -d '|' -f1)"
           anid="$(cat "$vv" | cut -d '|' -f3)"
-          if [ "$(grep -cm1 "$id|" "$vv")" == 1 ];then
-          sed -i "/${id}|/d" $ptat
-          elif [ "$(grep -cm1 "$anid|" "$vv")" == 1 ];then
-          sed -i "/${anid}|/d" $ptat
-          fi
+          [ "$(grep -cm1 "$id|" "$vv")" == 1 ] && sed -i "/${id}|/d" $ptat
+          [ "$(grep -cm1 "$anid|" "$vv")" == 1 ] && sed -i "/${anid}|/d" $ptat
           cat "$vv" >> $ptat
           done
           cat $ptat | grep '|' | sort -n > new.log
