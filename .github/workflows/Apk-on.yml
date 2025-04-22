@@ -1,8 +1,9 @@
 name: Auto Apk-On
 on:
-  push:
-    paths:
-      - '.github/apk-on/*.txt'
+  workflow_dispatch:
+  #push:
+    #paths:
+      #- '.github/apk-on/*.txt'
 concurrency:
   group: repo-only
   cancel-in-progress: true
