@@ -2,7 +2,7 @@ name: Auto Add-On
 on:
   push:
     paths:
-      - '.github/add-on/*'
+      - '.github/add-on/*.txt'
 concurrency:
   group: repo-only
   cancel-in-progress: true
