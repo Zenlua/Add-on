@@ -2,7 +2,7 @@ name: Add Username
 on:
   push:
     paths:
-      - '.github/user/*'
+      - '.github/user/*.txt'
 concurrency:
   group: repo-only
   cancel-in-progress: false
