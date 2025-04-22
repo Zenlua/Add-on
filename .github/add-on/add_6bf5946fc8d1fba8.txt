@@ -1,1 +1,0 @@
-test|Kakathic|140|Apkeditor|chỉnh sửa, đóng gói apk|https://github.com/Zenlua/Add-on/blob/main/.github/add-on/add_6bf5946fc8d1fba8.txt|321
