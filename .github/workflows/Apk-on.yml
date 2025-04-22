@@ -22,7 +22,7 @@ jobs:
           if [ "$(ls .github/apk-on/*.txt 2>/dev/null)" ];then
           ptat=".github/apk-on/Hello"
           for vv in .github/apk-on/*.txt; do
-          id="$(cat "$vv" | cut -d '|' -f1)"
+          id="$(cat "$vv" | cut -d '|' -f2)"
           if [ "$(grep -cm1 "$id|" "$vv")" == 1 ];then
           sed -i "/${id}|/d" $ptat
           fi
