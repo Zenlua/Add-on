@@ -21,10 +21,10 @@ jobs:
           if [ "$(ls .github/user/*.txt 2>/dev/null)" ];then
           ptat=".github/user/TK"
           for vv in .github/user/*.txt; do
-          id="$(cat "$vv" | cut -d '|' -f1)"
-          anid="$(cat "$vv" | cut -d '|' -f3)"
-          [ "$(grep -cm1 "$id|" "$vv")" == 1 ] && sed -i "/${id}|/d" $ptat
-          [ "$(grep -cm1 "$anid|" "$vv")" == 1 ] && sed -i "/${anid}|/d" $ptat
+          id="$(cat "$vv" | cut -d '|' -f2)"
+          anid="$(cat "$vv" | cut -d '|' -f4)"
+          [ "$(grep -cm1 "|$id|" "$vv")" == 1 ] && sed -i "/${id}|/d" $ptat
+          [ "$(grep -cm1 "|$anid|" "$vv")" == 1 ] && sed -i "/${anid}|/d" $ptat
           cat "$vv" >> $ptat
           done
           cat $ptat | grep '|' 2>/dev/null | sort -n > new.log
