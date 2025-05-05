@@ -1,1 +1,0 @@
-123|test1|Kakathic|102|Test|Thử nghiệm add-on|https://github.com/Zenlua/Add-on|1.2|321
