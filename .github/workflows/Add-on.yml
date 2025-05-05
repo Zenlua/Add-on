@@ -1,9 +1,9 @@
 name: Auto Add-On
 on:
   workflow_dispatch:
-  #push:
-    #paths:
-      #- '.github/add-on/*.txt'
+  push:
+    paths:
+      - '.github/add-on/*.txt'
 concurrency:
   group: repo-only
   cancel-in-progress: true
