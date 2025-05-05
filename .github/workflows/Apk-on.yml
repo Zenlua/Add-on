@@ -13,7 +13,7 @@ env:
 jobs:
   build:
     name: 'Update File'
-    #environment: delay
+    environment: delay1m
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
