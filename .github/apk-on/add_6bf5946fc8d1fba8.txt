@@ -1,0 +1,1 @@
+123|lang_filter|Kakathic|100|Language filter|Remove languages and libs|https://zenlua.github.io/Tool-Tree/add-on/lang_filter|1.0|321
