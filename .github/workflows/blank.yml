@@ -16,12 +16,16 @@ jobs:
       - name: Run script
         run: |
             set -x
+
+            git tag -l "V1"
             
             git_tag(){
-            git tag "$1" && git tag -l "$1"
             
-            if [ "$(git tag "$1" && git tag -l "$1")" != "$1" ];then
-            git tag "$1" && git push origin "$1"
+            git tag "$1"
+            git tag -l "$1"
+            
+            if [ "$(git tag -l "$1")" != "$1" ];then
+            git push origin "$1"
             echo "Đã tạo tag: $1"
             fi; }
             
