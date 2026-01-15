@@ -33,11 +33,11 @@ jobs:
             #git_tag V3
             echo 123 > z.txt
             
-            upload_gh V3 z.txt hello test
-            gh release upload V3 z.txt --clobber
+            #upload_gh V3 z.txt hello test
+            #gh release upload V3 z.txt --clobber
             
-            gh --help
-            echo end
+            gh release view V3 tagName
+            echo
          
 
 
