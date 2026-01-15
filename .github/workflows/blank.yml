@@ -17,9 +17,11 @@ jobs:
         run: |
             TAG_NAME='V1'
             git tag "$TAG_NAME"
+            echo 11
             git push origin "$TAG_NAME"
+            echo 12
             git tag -l "$TAG_NAME"
-            echo
+            echo 23
             git show-ref --tags
          
 
