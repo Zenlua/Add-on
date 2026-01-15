@@ -15,6 +15,7 @@ jobs:
       - uses: actions/checkout@v6
       - name: Run script
         run: |
+            set -x
             TAG_NAME='V1'
             #git tag "$TAG_NAME"
             echo 11
