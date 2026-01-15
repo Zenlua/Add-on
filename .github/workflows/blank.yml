@@ -17,14 +17,23 @@ jobs:
         run: |
             set -x
             
-            TAG_NAME='V2'
-            git tag "$TAG_NAME"
-            if [ "$(git tag -l "$TAG_NAME")" != "$TAG_NAME" ];then
-            git push origin "$TAG_NAME"
-            echo 'Đã tạo tag: $TAG_NAME'
-            fi
-            
+            git_tag(){ git tag "$1"
+            if [ "$(git tag -l "$1")" != "$1" ];then
+            git push origin "$1"
+            echo 'Đã tạo tag: $1'
+            fi; }
+          
 
+            upload_gh(){
+            gh release create "$1" \
+            "$2" --title "$3" --notes "$4" \
+            --clobber; }
+
+            git_tag V3
+            echo 123 > z.txt
+            upload_gh V3 z.txt hello test
+            
+            
             echo end
          
 
