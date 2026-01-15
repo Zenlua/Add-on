@@ -28,6 +28,8 @@ jobs:
 
             git_tag V3
             echo 123 > z.txt
+            
+            gh release upload V3 z.txt --clobber
             upload_gh V3 z.txt hello test
             
             gh --help
