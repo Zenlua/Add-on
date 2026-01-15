@@ -17,9 +17,9 @@ jobs:
         run: |
             set -x
             TAG_NAME='V1'
-            #git tag "$TAG_NAME"
+            git tag "$TAG_NAME"
             echo 11
-            git push origin "$TAG_NAME"
+            #git push origin "$TAG_NAME"
             echo 12
             git tag -l "$TAG_NAME"
             echo 23
