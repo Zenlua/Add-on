@@ -23,6 +23,8 @@ jobs:
             git tag -l "$TAG_NAME"
             echo 23
             git show-ref --tags
+
+            echo end
          
 
 
