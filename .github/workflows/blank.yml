@@ -25,7 +25,7 @@ jobs:
             upload_gh V3 z.txt hello test
             #gh release upload V3 z.txt --clobber
             
-            
+            gh release verify V3
             echo
          
 
