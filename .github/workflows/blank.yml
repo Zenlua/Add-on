@@ -17,26 +17,15 @@ jobs:
         run: |
             set -x
             
-            git_tag(){
-            
-            git tag "$1"
-            git tag -l "$1"
-            
-            if [ "$(git tag -l "$1")" == "$1" ];then
-            git push origin "$1"
-            echo "Đã tạo tag: $1"
-            fi; }
-            
             upload_gh(){
             gh release create "$1" "$2" --title "$3" --notes "$4"; }
 
-            #git_tag V3
             echo 123 > z.txt
             
-            #upload_gh V3 z.txt hello test
+            upload_gh V3 z.txt hello test
             #gh release upload V3 z.txt --clobber
             
-            gh release view V3 tagName
+            
             echo
          
 
