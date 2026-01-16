@@ -22,7 +22,7 @@ jobs:
 
             echo 123 > z.txt
             
-            upload_gh V3 z.txt hello test
+            #upload_gh V3 z.txt hello test
             #gh release upload V3 z.txt --clobber
             
             gh release verify V3
