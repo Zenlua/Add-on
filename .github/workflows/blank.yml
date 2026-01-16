@@ -17,16 +17,18 @@ jobs:
         run: |
             set -x
             
-            upload_gh(){
-            gh release create "$1" "$2" --title "$3" --notes "$4"; }
-
             echo 123 > z.txt
             
-            #upload_gh V4 z.txt hello test
-            #gh release upload V3 z.txt --clobber
+            upload_gh(){
+            if [ "$(gh release verify "$1" 2>&1 | grep -cm1 "$1")" == 1 ];then
+            gh release edit "$1" --latest -t "$3" -n "$4"
+            gh release upload "$1" "$2" --clobber
+            else
+            gh release create "$1" "$2" -t "$3" -n "$4"
+            fi; }
+
+            upload_gh V5 z.txt hello test
             
-            gh release verify V3 2>&1 | grep -o V3
-            echo
          
 
 
