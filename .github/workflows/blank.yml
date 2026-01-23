@@ -16,6 +16,10 @@ jobs:
       - name: Run script
         run: |
             set -x
+
+            7z || 7zz
+
+            
             
             echo 123 > z.txt
             
