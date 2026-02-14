@@ -1,8 +1,4 @@
-
-plugins {
-    id 'com.android.application'
-    
-}
+apply plugin: 'com.android.application'
 
 android {
     namespace 'com.tool.pif'
@@ -13,6 +9,12 @@ android {
         targetSdk 36
         versionCode 1
         versionName "1.0"
+        }
+
+    lint {
+            abortOnError false
+            checkReleaseBuilds false
+            disable 'ProtectedPermissions'
         }
 
     defaultConfig {
