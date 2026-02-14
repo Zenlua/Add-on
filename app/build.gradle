@@ -1,0 +1,41 @@
+
+plugins {
+    id 'com.android.application'
+    
+}
+
+android {
+    namespace 'com.tool.pif'
+    compileSdk 34
+    buildToolsVersion "34.0.4"
+    defaultConfig {
+        applicationId "com.tool.pif"
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+        }
+
+    defaultConfig {
+        resConfigs "vi", "en"
+    }
+
+    buildTypes {
+        release {
+            shrinkResources true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            debuggable false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "androidx.work:work-runtime:2.9.0"
+}
