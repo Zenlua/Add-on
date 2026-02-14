@@ -6,12 +6,11 @@ plugins {
 
 android {
     namespace 'com.tool.pif'
-    compileSdk 34
-    buildToolsVersion "34.0.4"
+    compileSdk 36
     defaultConfig {
         applicationId "com.tool.pif"
         minSdk 21
-        targetSdk 34
+        targetSdk 36
         versionCode 1
         versionName "1.0"
         }
@@ -27,11 +26,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             debuggable false
         }
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
     }
 }
 
